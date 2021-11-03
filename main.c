@@ -4,14 +4,12 @@
 
 int main()
 {
-    double x1, x2, delta,y;
-    unsigned int variant, N;
-    int j;
-    do{
+    double x1, x2, delta,y, t;
+    unsigned int variant, N, j;
         printf("Enter  variant(1 or 2): ");
         scanf("%u", &variant );
-    }
-    while( variant !=1 && variant !=2 );
+
+    while( variant !=1 && variant !=2 )
     {
         printf("ERROR. Invalid data\n");
         printf("Enter variant (1 or 2 ): ");
@@ -19,83 +17,71 @@ int main()
     }
 
 
-    if( variant == 1 ){
-
-
+    if( variant == 1 )
+     {
     printf("\nx1=");
     scanf("%lf", &x1);
-
     printf("\nx2=");
     scanf("%lf", &x2);
-
-        printf("\n(N>0) N=");
-        scanf("%u", &N);
+    printf("\n(N>0) N=");
+    scanf("%u", &N);
 
         while(N<1){
         printf("ERROR. Invalid data\n");
         printf("N=");
         scanf("%u", &N);
         }
-
-        int i=1;
+        int i=1,st=0;
         delta=(4*x2-5*x1)/(N-x1);
         system("cls");
-        printf("____________________________________________________________\n");
-        printf("|  N  |  X  |  y  |\n");
-        printf("____________________________________________________________\n");
+        printf("---------------------------------------------\n");
+        printf("|     N       |       X      |       y      |\n");
+        printf("---------------------------------------------\n");
           for(i;i<=N;i++)
         {
-            printf("| %7d  |  %21f  |  2  |",i,x1,y);
-            printf("____________________________________________________________\n");
-            printf("n");
-            printf("\n");
+            printf("| %10d  |  %10.2f  |  %10.2f  |\n",i,x1,y);
+            printf("---------------------------------------------\n");
             x1=x1+5;
             y=x1+delta;
-            if(i%11==0);
-            {
-             printf("Press any key\r");
-             getchar();
+            if( i%10 == 0){
+                printf("Press any key\r");
+                getch();
             }
         }
 
     }
 
-     if(j==2){
-
+     if( variant ==2){
          printf("\nx1=");
          scanf("%lf", &x1);
          printf("\nx2=");
          scanf("%lf", &x2);
-         printf("\ndelta=");
-         scanf("%lf", &delta);
+         printf("\n(j>0) j=");
+         scanf("%u", &j);
 
-           while(delta<1){
+           while(j<1){
             printf("ERROR. Invalid data\n");
-            printf("delta=");
-            scanf("%u", &delta);
+            printf("j=");
+            scanf("%u", &j);
            }
           int i=1;
+          t=(4*x2-5*x1)/(j-x1);
           system("cls");
-          printf("____________________________________________________________\n");
-          printf("|  N  |  X  |  y  |\n");
-          printf("____________________________________________________________\n");
-
-          while(x1<=x2)
-          {
-              printf("| %7d  |  %21f  |  2  |",i,x1,y);
-            printf("____________________________________________________________\n");
-            printf("n");
-            printf("\n");
-            x1=x1+5;
-            y=x1+delta;
-            i++;
-          if(i%11==0);
+          printf("---------------------------------------------\n");
+          printf("|     j       |       X      |       y      |\n");
+          printf("---------------------------------------------\n");
+            for(i;i<=j;i++)
             {
-             printf("Press any key\r");
-             getchar();
-            }
-          }
+              printf("| %10d  |  %10.2f  |  %10.2f  |\n",i,x1,y);
+            printf("---------------------------------------------\n");
+            x1=x1+5;
+            y=x1+t;
+            if( i%10 == 0){
+                printf("Press any key\r");
+                getch();
+              }
 
+            }
     }
     return 0;
 }
